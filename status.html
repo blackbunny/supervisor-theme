@@ -1,69 +1,101 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:meld="https://github.com/Supervisor/supervisor">
 <head>
-  <title>Supervisor Status</title>
-  <link href="stylesheets/supervisor.css" rel="stylesheet" type="text/css" />
-  <link href="images/icon.png" rel="icon" type="image/png" />
+    <title>Supervisor Status</title>
+    <!--<link href="stylesheets/supervisor.css" rel="stylesheet" type="text/css" />-->
+    <link href="stylesheets/supervisor2.css" rel="stylesheet" type="text/css"/>
+    <link href="images/icon.png" rel="icon" type="image/png"/>
 </head>
 <body>
 <div id="wrapper">
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-2 border-bottom" id="header">
+            <a href="/"
+               class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                <img src="images/supervisor.png" height="25" alt="Supervisor status"/>
+            </a>
+            <!--<ul class="nav nav-pills">
+              <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+            </ul>-->
+        </header>
+    </div>
+    <div class="container">
+        <div meld:id="content">
+            <div class="alert alert-danger mb-2 d-none" role="alert" meld:id="statusmessage">#</div>
+            <div class="row mb-2">
+                <div class="col">
+                    <div class="btn-group" role="group" aria-label="Basic example" id="buttons">
+                        <a class="btn btn-sm btn-primary" href="index.html?action=refresh">Refresh</a>
+                        <a class="btn btn-sm btn-warning" href="index.html?action=restartall">Restart All</a>
+                        <a class="btn btn-sm btn-danger" href="index.html?action=stopall">Stop All</a>
+                    </div>
+                </div>
+            </div>
+            <form meld:id="form" action="index.html" method="post">
+                <table class="table table-striped table-bordered table-hover" meld:id="statustable">
+                    <thead>
+                    <tr>
+                        <th class="state">State</th>
+                        <th class="desc">Description</th>
+                        <th class="name">Name</th>
+                        <th class="action">Action</th>
+                    </tr>
+                    </thead>
 
-  <div id="header">
-    <img src="images/supervisor.gif" alt="Supervisor status" />
-  </div>
+                    <tbody meld:id="tbody">
+                    <tr meld:id="tr" class="">
+                        <td meld:id="status_td" class="status">
+                            <span meld:id="status_text" class="statusnominal">nominal</span>
+                        </td>
+                        <td meld:id="info_td"><span meld:id="info_text">Info</span></td>
+                        <td meld:id="name_td"><a href="#" meld:id="name_anchor" target="_blank">Name</a></td>
+                        <td meld:id="action_td" class="action">
+                            <ul class="btn-group p-0 m-0">
+                                <li meld:id="actionitem_td" class="list-unstyled me-2">
+                                    <a href="#" name="#" class="btn btn-sm btn-primary" meld:id="actionitem_anchor">Action</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
 
-  <div meld:id="content">
-    <div class="hidden" meld:id="statusmessage">#</div>
+        </div>
+    </div>
 
-    <form meld:id="form" action="index.html" method="post">
-      <ul id="buttons" class="clr">
-        <li class="action-button"><a href="index.html?action=refresh">Refresh</a></li>
-        <li class="action-button"><a href="index.html?action=restartall">Restart All</a></li>
-        <li class="action-button"><a href="index.html?action=stopall">Stop All</a></li>
-      </ul>
 
-      <table cellspacing="0" meld:id="statustable">
-        <thead>
-        <tr>
-          <th class="state">State</th>
-          <th class="desc">Description</th>
-          <th class="name">Name</th>
-          <th class="action">Action</th>
-        </tr>
-        </thead>
+    <div class="push">
+    </div>
+</div>
 
-        <tbody meld:id="tbody">
-          <tr meld:id="tr" class="">
-            <td meld:id="status_td" class="status"><span meld:id="status_text" class="statusnominal">nominal</span></td>
-            <td meld:id="info_td"><span meld:id="info_text">Info</span></td>
-            <td meld:id="name_td"><a href="#" meld:id="name_anchor" target="_blank">Name</a></td>
-            <td meld:id="action_td" class="action">
-              <ul>
-                <li meld:id="actionitem_td">
-                  <a href="#" name="#" meld:id="actionitem_anchor">Action</a>
-                </li>
-              </ul>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </form>
+<div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <p class="col-md-4 mb-0 text-body-secondary"><a href="http://supervisord.org">Supervisor</a> <span meld:id="supervisor_version">#</span></p>
 
-  </div>
+        <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <img src="images/supervisor.png" height="25" alt="Supervisor status"/>
+        </a>
 
-  <div class="push">
-  </div>
+        <p class="nav col-md-4 justify-content-end">
+            &amp;copy; 2006-<span class="me-2" meld:id="copyright_date">#</span> <strong><a href="https://github.com/blackbunny">Blackbunny</a></strong>
+        </p>
+    </footer>
 </div>
 
 <div id="footer" class="clr">
-  <div class="left">
-    <a href="http://supervisord.org">Supervisor</a> <span meld:id="supervisor_version">#</span>
-  </div>
-  <div class="right">
-    &amp;copy; 2006-<span meld:id="copyright_date">#</span> <strong><a href="http://agendaless.com/">Agendaless Consulting and Contributors</a></strong>
-  </div>
+    <div class="left">
+
+    </div>
+    <div class="right">
+
+    </div>
 </div>
 </body>
 </html>
