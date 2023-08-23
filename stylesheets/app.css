@@ -1,0 +1,9 @@
+.statusnominal {
+    background-image: url("../images/state0.gif");
+}
+.statusrunning {
+    background-image: url("../images/state2.gif");
+}
+.statuserror {
+    background-image: url("../images/state3.gif");
+}
